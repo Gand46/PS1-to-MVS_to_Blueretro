@@ -37,7 +37,7 @@ ESP32 - IO26 - CLK P1 - Arduino P2 Pin 4
 
 ESP32 - NC - ACK P1 - Arduino P2 Pin N/A (Not Connected)
 
-6. Finally connect the arduino to the MVS using the mvs diagram 
+6. Finally connect the arduino to the MVS using the mvs diagram of the NEOGEO
 
 
 
