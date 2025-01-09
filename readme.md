@@ -1,4 +1,9 @@
+# PS1_NEOGEO/MVS to BLUERETRO
 Forked from www.delta-island.com github an implementation of the code to use it with the mvs neogeo connecting it directrly to the pcb and consolize the MVS without to much pain only need 2 Arduino pro mini a ESP32 i already rewrite the pinout disposition to connect it more easy from the mvs board.
+
+i remove the joystick option and mod it to use the R1 as button A instead of (X) button when keep pressed the L1 + R1 + Select for a few seconds, and also add the Coin Button L1 to correctly use it as arcade.
+
+i keep searching to implent IGR with the use of a few buttons and a pin of the MVS cartrige reader on the future
 
 I will explain easy and short how make it:
 
