@@ -30,18 +30,16 @@ and the "Global Config", in the System option, change the setting from "Default:
 ![Alt text](https://github.com/darthcloud/BlueRetro/wiki/img/web/advance_global.png)
 
 ## Connect Pinout from BlueRetro to Arduino:
-There are only 4 pins to connect for each arduino Player 1 and Player 2 ***The ACK pin is not connected***
+There are only 4 pins to connect for each arduino Player 1 and Player 2, ***The ACK pin is not connected***
 
-**PLAYER 1:**
+**PLAYER 1:**  
 >ESP32 - IO19 - DATA P1 - Arduino P1 - Pin 12  
 >ESP32 - IO32 - CMD P1 - Arduino P1 - Pin 10  
 >ESP32 - I34 - CS P1 - Arduino P1 - Pin 5  
 >ESP32 - IO33 - CLK P1 - Arduino P1 - Pin 4  
 >ESP32 - NC - ACK P1 - Arduino P1 - Pin N/A (Not Connected)  
 
-
-**PLAYER 2:**
-
+**PLAYER 2:**  
 >ESP32 - IO22 - DATA P1 - Arduino P2 - Pin 12  
 >ESP32 - IO27 - CMD P1 - Arduino P2 - Pin 10  
 >ESP32 - IO5 - CS P1 - Arduino P2 - Pin 5  
@@ -51,38 +49,36 @@ There are only 4 pins to connect for each arduino Player 1 and Player 2 ***The A
 
 ## Connect Arduino to MVS:
 [Pinout MVS](https://github.com/Gand46/PS1-to-MVS_to_Blueretro/blob/master/Images/Pinout-SNK-Neo-Geo-MVS_page-0001.jpg)  
+
 **Player 1**  
-MVS Pinout from 16 to 26  
+MVS Pinout from 16 to 26    
+>P1 - Credit - Arduino Pin: 2 - MVS Pin: 16  
+>P1- Start - Arduino Pin: 3 - MVS Pin: 17  
+>P1- UP - Arduino Pin: 6 - MVS Pin: 18  
+>P1- DOWN - Arduino Pin: 7 - MVS Pin: 19  
+>P1- LEFT - Arduino Pin: 8 - MVS Pin: 20  
+>P1- RIGHT - Arduino Pin:n 9 - MVS Pin: 21  
+>P1- A_Button - Arduino Pin: A0 - MVS Pin: 22  
+>P1- B_Button - Arduino Pin: A1 - MVS Pin: 23  
+>P1- C_Button - Arduino Pin: A2 - MVS Pin: 24  
+>P1- D_Button - Arduino Pin: A3 - MVS Pin: 25  
+>P1- Select - Arduino Pin: A5 - MVS Pin: 26  
 
-P1 - Credit - Arduino Pin: 2 - MVS Pin: 16
-P1- Start - Arduino Pin: 3 - MVS Pin: 17
-P1- UP - Arduino Pin: 6 - MVS Pin: 18
-P1- DOWN - Arduino Pin: 7 - MVS Pin: 19
-P1- LEFT - Arduino Pin: 8 - MVS Pin: 20
-P1- RIGHT - Arduino Pin:n 9 - MVS Pin: 21
-P1- A_Button - Arduino Pin: A0 - MVS Pin: 22
-P1- B_Button - Arduino Pin: A1 - MVS Pin: 23
-P1- C_Button - Arduino Pin: A2 - MVS Pin: 24
-P1- D_Button - Arduino Pin: A3 - MVS Pin: 25
-P1- Select - Arduino Pin: A5 - MVS Pin: 26
+**Player 2**  
+MVS Pinout from T to d:  
+>P2 - Credit - Arduino Pin: 2 - MVS Pin: T  
+>P2- Start - Arduino Pin: 3 - MVS Pin: U  
+>P2- UP - Arduino Pin: 6 - MVS Pin: V  
+>P2- DOWN - Arduino Pin: 7 - MVS Pin: W  
+>P2- LEFT - Arduino Pin: 8 - MVS Pin: X  
+>P2- RIGHT - Arduino Pin: 9 - MVS Pin: Y  
+>P2- A_Button - Arduino Pin: A0 - MVS Pin: Z  
+>P2- B_Button - Arduino Pin: A1 - MVS Pin: a  
+>P2- C_Button - Arduino Pin: A2 - MVS Pin: b  
+>P2- D_Button - Arduino Pin: A3 - MVS Pin: c  
+>P2- Select - Arduino Pin: A5 - MVS Pin: d  
 
-Player 2 MVS Pinout from T to d:
-
-P2 - Credit - Arduino Pin: 2 - MVS Pin: T
-P2- Start - Arduino Pin: 3 - MVS Pin: U
-P2- UP - Arduino Pin: 6 - MVS Pin: V
-P2- DOWN - Arduino Pin: 7 - MVS Pin: W
-P2- LEFT - Arduino Pin: 8 - MVS Pin: X
-P2- RIGHT - Arduino Pin: 9 - MVS Pin: Y
-P2- A_Button - Arduino Pin: A0 - MVS Pin: Z
-P2- B_Button - Arduino Pin: A1 - MVS Pin: a
-P2- C_Button - Arduino Pin: A2 - MVS Pin: b
-P2- D_Button - Arduino Pin: A3 - MVS Pin: c
-P2- Select - Arduino Pin: A5 - MVS Pin: d
-
-Use the MVS diagram of the NEOGEO to connect or solder it directly to the pads  Player 2 MVS Pinout from T to d:  
-
-
+**NOTE:** I have already created a summary of all the pin images.
 
 
 ![Alt text](Images/BlueRetro_PSX_MVS_NEOGEO.png)
