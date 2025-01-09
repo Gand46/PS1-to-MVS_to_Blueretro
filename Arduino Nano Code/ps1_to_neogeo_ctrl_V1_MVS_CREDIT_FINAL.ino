@@ -25,22 +25,21 @@ Written by Delta-island.com, October 2019
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Button Hex Representations:
-#define psxLeft    0x0001 
-#define psxDown   0x0002
-#define psxRight  0x0004
-#define psxUp   0x0008
-#define psxStrt   0x0010
-#define psxSlct   0x0080
+#define psxLeft  0x0001 
+#define psxDown  0x0002
+#define psxRight 0x0004
+#define psxUp    0x0008
+#define psxStrt  0x0010 - 16
+#define psxSlct  0x0080 - 128
 
-#define psxSqu    0x0100
+#define psxSqu  0x0100
 #define psxX    0x0200
 #define psxO    0x0400
-#define psxTri    0x0800
-#define psxR1   0x1000
-#define psxL1   0x2000
+#define psxTri  0x0800
+#define psxR1   0x1000 - 4096
+#define psxL1   0x2000 - 8192
 #define psxR2   0x4000
-#define psxL2   0x8000
-
+#define psxL2   0x8000 - 32768
 
 */
 
@@ -51,16 +50,17 @@ Written by Delta-island.com, October 2019
 #define attPin 5
 #define clockPin 4
 
-#define UP 7
-#define DOWN 6
-#define LEFT A5
-#define RIGHT A4
-#define Strt_Button 2
-#define Slct_Button 3
-#define A_Button A3
-#define B_Button A2
-#define C_Button A1
-#define D_Button A0
+#define CR_Button 2
+#define Strt_Button 3
+#define UP 6
+#define DOWN 7
+#define LEFT 8
+#define RIGHT 9
+#define A_Button A0
+#define B_Button A1
+#define C_Button A2
+#define D_Button A3
+#define Slct_Button A5
 
 byte mode = 0; //   Joypad Mode = 0  Joystick Mode = 1
 
@@ -85,10 +85,10 @@ void setup()
   pinMode(B_Button, INPUT);
   pinMode(C_Button, INPUT);
   pinMode(D_Button, INPUT);
+  pinMode(CR_Button, INPUT);
   
   // Serial.begin(115200);
 }
-
 void loop()
 {
   data = Psx.read();                                      // Psx.read() initiates the PSX controller and returns
@@ -99,7 +99,7 @@ void loop()
     if (mode == 0)
       { 
         mode = 1;
-        // Serial.println("Joystick Mode");
+        // Serial.println("Shooter Mode");
         delay (300);
       }
      else
@@ -118,9 +118,9 @@ if (data & psxX && (mode == 0))
     pinMode(A_Button, OUTPUT);
     digitalWrite(A_Button, LOW);
   }
-else if  (data & psxL2 && (mode == 1))                                       
+else if  (data & psxR1 && (mode == 1))                                       
  {
-    // Serial.println("A - Joystick");
+    // Serial.println("A - Shooter");
     pinMode(A_Button, OUTPUT);
     digitalWrite(A_Button, LOW);
   }
@@ -128,17 +128,10 @@ else
   { 
     pinMode (A_Button, INPUT);   // Mise en mode haute impedance de la PIN
   }
-
 //---------------------Bouton B---------------------------- 
-if (data & psxO && (mode == 0))                                      
+if (data & psxO)                                      
  {
     // Serial.println("B - Joypad");
-    pinMode(B_Button, OUTPUT);
-    digitalWrite(B_Button, LOW);
-  }
-else if  (data & psxX && (mode == 1))                                       
- {
-    // Serial.println("B - Joystick");
     pinMode(B_Button, OUTPUT);
     digitalWrite(B_Button, LOW);
   }
@@ -146,17 +139,10 @@ else
   { 
     pinMode (B_Button, INPUT);   // Mise en mode haute impedance de la PIN
   }
-  
 //---------------------Bouton C---------------------------- 
-if (data & psxSqu && (mode == 0))                                      
+if (data & psxSqu)                                      
  {
     // Serial.println("C - Joypad");
-    pinMode(C_Button, OUTPUT);
-    digitalWrite(C_Button, LOW);
-  }
-else if  (data & psxO && (mode == 1))                                       
- {
-    // Serial.println("C - Joystick");
     pinMode(C_Button, OUTPUT);
     digitalWrite(C_Button, LOW);
   }
@@ -164,17 +150,10 @@ else
   { 
     pinMode (C_Button, INPUT);   // Mise en mode haute impedance de la PIN
   }
-
 //---------------------Bouton D---------------------------- 
-if (data & psxTri && (mode == 0))                                      
+if (data & psxTri)                                      
  {
     // Serial.println("D- Joypad");
-    pinMode(D_Button, OUTPUT);
-    digitalWrite(D_Button, LOW);
-  }
-else if  (data & psxR2 && (mode == 1))                                       
- {
-    // Serial.println("D - Joystick");
     pinMode(D_Button, OUTPUT);
     digitalWrite(D_Button, LOW);
   }
@@ -182,10 +161,17 @@ else
   { 
     pinMode (D_Button, INPUT);   // Mise en mode haute impedance de la PIN
   }
-
-
-
-
+//---------------------Bouton CREDIT---------------------------- 
+if (data & psxR1)                                       
+ {
+    // Serial.println("Credit");
+    pinMode(CR_Button, OUTPUT);
+    digitalWrite(CR_Button, LOW);
+  }
+else
+  { 
+    pinMode (CR_Button, INPUT);   // Mise en mode haute impedance de la PIN
+  } 
 /* Zonne commune Joypad & Joystick */
 //---------------------Bouton Start---------------------------- 
 if (data & psxStrt)                                      
